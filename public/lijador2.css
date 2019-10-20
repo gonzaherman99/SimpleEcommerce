@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700');
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Heebo', sans-serif;
+}
+
+/**NAVBAR**/
+.navbar {
+    width: 100%;
+    z-index: 1;
+    background-color: #44bd32;
+    position: fixed !important;
+}
+.form-inline {
+     margin-left: 37%;
+     padding-top: 5px;
+     padding-bottom: 5px;
+}
+input.form-control.mr-sm-2 {
+    padding: 0 60px 0 5px;
+}
+a.orden {
+    margin-left: 80%;
+    margin-right: 5%;
+    position: absolute;
+    color: black;
+    text-decoration: none !important;
+}
+ a.orden:hover {
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}
+.number {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin: -5px 0 0 5px;
+}
+.cerrar {
+    margin-left: 30%;
+}
+
+/**NAV**/
+.navbar {
+    background-color: #44bd32;
+    position: fixed !important;
+    width: 100%;
+    z-index: 1;
+}
+.form-inline {
+     margin-left: 37%;
+     padding-top: 5px;
+     padding-bottom: 5px;
+    -ms-margin-left: 34%;
+}
+input.form-control.mr-sm-2 {
+    padding: 0 60px 0 5px;
+}
+
+/**NAV**/
+#nav {
+    z-index: 2;
+    background-color: #44bd32;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    position: fixed;
+}
+.navimg {
+    position: fixed;
+    left: 2%;
+    top: 4%;
+}
+.nav {
+    margin-top: 5%;
+    transform: translateY(43%);
+    text-align: center;
+    background-color: #44bd32;
+}
+.nav-item {
+    padding: 10% 0;
+}
+.closebtn {
+    visibility: hidden;
+}
+.openbtn {
+    visibility: hidden;
+}
+a.nav-link {
+    text-decoration: none;
+      text-rendering: geometricPrecision;
+      position: relative;
+      display: block;
+      color: black;
+      font-weight: 500;
+        margin-top: 10%;
+      font-family: "Heebo";
+      transition: transform .6s cubic-bezier(0.55, 0, 0.55, 0.2) , color .6s cubic-bezier(0.55, 0, 0.55, 0.2);
+      transform-origin: 50% 75%;
+}
+
+.sidebar {
+  margin-top: 40%;
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2f3640;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #dcdde1;
+   font-weight: 700;
+    transform: scale(1.1);
+}
+
+/**PRECIOS**/
+
+
+#precios {
+    z-index: 0;
+    margin-left: 15%;
+    padding-top: 13%;
+    padding-bottom: 16.5%;
+    background-color: #2f3640;
+}
+.precios {
+    margin-top: 4%;
+}
+.desc  {
+    color: white;
+    text-align: left;
+    margin: -2% 0 0 -17%;
+}
+h2.desc {
+    padding-bottom: 6%; 
+}
+h3.desc {
+    color: #79E712;
+    padding-top: 8%;
+}
+.precios2 {
+    margin-left: -19%;
+    margin-top: 5%;
+}
+.bn {
+    margin: 2%;
+    text-align: center;
+    padding: 1px;
+    border: 2px solid transparent !important;
+    font-weight: 600 !important;
+}
+.bn:hover {
+    border-color: #79E712 !important;
+}
+.dif {
+    display: block;
+}
+.card {
+    text-align: center;
+    margin: 8% -1% 5% 10%;
+    border: 2px solid #79E712 !important;
+}
+
+/**BTNS**/
+form#btns {
+    margin-top: 6%;
+    border: .5px solid white;
+}
+.com {
+    color: white;
+    margin-top: 3%;
+    text-align: center;
+}
+.share i {
+    padding: 2%;
+}
+.share, .cantidad {
+    text-align: center;
+}
+h5.cantidad {
+    display: block;
+    margin-right: 40%;
+    color: white;
+}
+h5#alert {
+    text-align: center !important;
+    color: red !important;
+    font-family: "Heebo" !important;
+    margin-left: -35%;
+    font-weight: 400;
+}
+input[type=number] {
+    display: block;
+    margin-left: -3%;
+}
+
+.cant {
+    margin-top: 5%;
+    margin-left: 27%;
+}
+.verde {
+        color: #79E712;
+    }
+select {
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+}
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+}
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373;
+}
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9;
+}
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block;
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em;
+}
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.25em 0.25em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.resp-sharing-button__icon svg {
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.4em;
+  vertical-align: top;
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle;
+}
+/* Solid icons get a fill */
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none;
+}
+#btns button {
+    display: block;
+    margin-top: 5%;
+     margin-left: auto;
+    margin-right:  auto;
+}
+button.btn-info {
+    margin-top: 5% !important;
+}
+button.btn-warning {
+    margin-top: 5% !important;
+    margin-bottom: 7% !important;
+}
+#footer {
+    padding: 3%;
+    margin-left: 20%;
+    text-align: center;
+}
+.fo {
+    padding: .5%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .navbar {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        z-index: 1;
+    }
+    .form-inline {
+        margin-left: 23%;
+        position: absolute;
+        display: inline !important;
+    }
+    input.form-control {
+        margin-top: -15%;
+    }
+    button.btn-outline-dark {
+        margin-top: -15% !important;
+    }
+    #nav {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;  
+        height: 80px;
+        z-index: 1;
+        margin-top: 200px;
+    }
+    .nav {
+        margin: 2% 0;
+        transform: translateY(0);
+    }
+    .navimg {
+        margin-top: -17% !important;
+        z-index: 1;
+        position: absolute;
+    }
+    .nav-item {
+        padding: 5% 0;
+    }
+    .cerrar {
+         margin-left: 64%;
+          margin-top: -4%;
+    }
+    a.orden {
+        margin: -2% 0 0 85%;
+    }
+.closebtn {
+    visibility: visible;
+}
+.openbtn {
+    visibility: visible;
+}
+.sidebar {
+  margin-top: 0;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color:  #44bd32; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.7s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2f3640;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #dcdde1;
+   font-weight: 700;
+    transform: scale(1.2);
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  visibility: visible;
+  cursor: pointer;
+  background-color: #0C6FAB;
+  color: white;
+  border: none;
+  margin-top: -8%;
+  margin-left: 37% !important;
+  font-family: Heebo !important;
+  border-radius: 10px;
+  vertical-align: middle;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 2% 4% 2% 4%;
+    transition: 1s;
+}
+.openbtn i {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+.openbtn:hover {
+  background-color: #1526D5;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left 1s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+    #precios {
+        margin-top: 250px;
+        margin-left: 0%;
+        padding-top: 4%;
+         padding-bottom: 4%;
+    }
+    .card {
+        width: 70%;
+        display: block;
+        margin-top: 46%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .card-img-top {
+        width: 315.09px;
+        height: 306.92px;
+    }
+    div.col-md-4 {
+        padding: 0;
+        margin: 0;
+    }
+     input[type=number] {
+        display: block !important;
+        margin-left: -5%;
+         margin-right: 10%;
+     }
+     h5.cantidad {
+        margin-right: 38%;
+     }
+    .precios {
+        text-align: center !important;
+        margin-left: 13%;
+        margin-top: 7% !important;
+        padding: 5%;
+    }
+    .precios2 {
+         text-align: center !important;
+         margin-top: -1% !important;
+        padding: 10%;
+         margin-right: -5%;
+    }
+    .desc {
+        display: block;
+        margin-right: 20%;
+        margin-left: 5%;
+        text-align: center !important;
+        margin-top: 0%;
+    }
+    h5#text {
+        text-align: center ;
+        margin: 6% 0 6% 0;
+    }
+    form#btns {
+        display: block;
+        margin-right: 5%;
+        margin-top: 45%;
+    }
+    #footer {
+    padding: 7%;
+    margin-left: 0%;
+    text-align: center;
+}
+}
+@media only screen and (max-width: 780px) {
+     #nav {
+        height: 120px;
+    }
+    .navimg {
+        margin-top: -23% !important;
+        margin-left: 5%;
+    }
+     a.orden {
+        margin: 9% 0 0 65%;
+    }
+    .cerrar {
+    margin: 19% 0 0 25%;
+}
+    .form-inline {
+         margin-left: 40%;
+        margin-top: -1s%;
+    }
+    .openbtn {
+        margin-top: -1% !important;
+        margin-left: 37% !important;
+    }
+    #precios {
+        margin-top: 260px;
+        margin-left: 0%;
+        padding-top: 10%;
+        padding-bottom: 4%;
+    }
+    .card {
+        width: 70%;
+        display: block;
+        margin-top: 60%;
+        margin-left:  auto;
+        margin-right: auto;
+    }
+    .precios {
+        margin-top: 3% !important;
+        margin-left: -4% !important;
+    }
+    .precios2 {
+        margin-top: 3% !important;
+        margin-left:   -2%;
+        margin-right:  -2%;
+    }
+    .desc {
+        display: block;
+        margin-right: 5%;
+        margin-left: 5%;
+        text-align: center !important;
+        margin-top: 4%;
+    }
+     input[type=number] {
+        display: block !important;
+        margin-left: -15%;
+     }
+    form#btns {
+        width: 100%;
+        margin: 60% 1% 0 0;
+        margin-right: 5% !important;
+    }
+     h5#text {
+        text-align: center ;
+        margin-top: 2%;
+        margin-left:   -2%;
+        margin-right:  -2%;
+    }
+     #footer {
+    padding: 8%;
+    margin-left: 0%;
+    text-align: center;
+}
+}
+
+@media only screen and (max-width: 690px) {
+ .navimg {
+        margin-top: -27% !important;
+        margin-left: 5%;
+    }
+    .form-inline {
+         margin-left: 45%;
+        margin-top: -7%;
+    }
+    .cart {
+        margin-left: -17%;
+        margin-top: 34%;
+        margin-right: 10%;
+    }
+     div.col-md-4 {
+        padding: 15px;
+        margin: 0;
+    }
+     #precios {
+        margin-top: 200px;
+        margin-left: 0%;
+    }
+     input[type=number] {
+        display: block !important;
+        margin-left: 10%;
+     }
+    .openbtn {
+        margin-top: -3% !important;
+        margin-left: 33% !important;
+    }
+      .desc {
+        display: block;
+        margin-right: 5%;
+        margin-left: 5%;
+        text-align: center !important;
+        margin-top: 0;
+    }
+    div.precios2 {
+         margin-top: -13px;
+         padding: -10%  !important;
+    }
+}
+@media only screen and (max-width: 580px) {
+    .navimg {
+        margin-top: -40% !important;
+        margin-left: 5%;
+    }
+    .form-inline {
+         margin-left: 40%;
+        margin-top: -5%;
+    }
+     button.btn-outline-dark {
+        margin-top: 2% !important;
+    }
+    .openbtn {
+        margin-top: -7% !important;
+        margin-left: 33% !important;
+    }
+    input[type=number] {
+        display: block !important;
+        margin-left: 4%;
+     }
+    #nav {
+        height: 90px;
+    }
+     #precios {
+        margin-top: 50px;
+        margin-left: 0%;
+    }
+      form#btns {
+        display: block;
+        margin-right: 5%;
+        margin-top: -6%;
+    }
+    .precios {
+        margin-top: -2% !important;
+        margin-left: auto !important;
+    }
+}
+@media only screen and (max-width: 425px) {
+    
+    .navimg {
+        width: 102.5px;
+        height: 81px;
+        margin-top: -43% !important;
+        margin-left: 5%;
+    }
+     #nav {
+        height: 97px;
+    }
+    .form-inline {
+        margin-top: -1%;
+        margin-left: 30%;
+    }
+    button.btn-outline-dark {
+        margin-top: 5% !important;
+    }
+     a.orden {
+        margin: 12% 0 0 65%;
+    }
+    .cerrar {
+        margin: 27% 0 0 17%;
+    }
+    #precios {
+        margin-top: 220px;
+        margin-left: 0%;
+    }
+    .openbtn {
+        margin-top: -7% !important;
+        margin-left: 28% !important;
+    }
+    .desc {
+         margin-top: -3% !important;
+    }
+    .card {
+        margin-top: 15%;
+    }
+    .precios {
+        margin-top: -3% !important;
+        margin-left: auto !important;
+    }
+    .precios2 {
+         margin-top: -3% !important;
+    }
+    h5#text {
+        margin-top: 4%;
+    }
+    form#btns {
+        display: block;
+        margin-right: 5%;
+        margin-top: -6%;
+    }
+    input[type=number] {
+    display: block;
+    margin-left: -1%;
+     }
+}
+@media only screen and (max-width: 375px) {
+  .navimg {
+        width: 102.5px;
+        height: 81px;
+        margin-top: -48% !important;
+        margin-left: 3%;
+    }
+    .form-inline {
+        margin-top: -3%;
+        margin-left: 30%;
+    }
+    #precios {
+        margin-top: 260px;
+    }
+    .openbtn {
+        margin-top: -10% !important;
+        margin-left: 27% !important;
+    }
+    #nav {
+        height: 80px;
+    }
+input[type=number] {
+    display: block;
+    margin-left: -5%;
+     }
+    .card {
+        width: 70%;
+        display: block;
+        margin: 3% auto;
+    }
+    #footer {
+    padding: 7%;
+    margin-left: 0%;
+    text-align: center;
+}
+}
+@media only screen and (max-width: 330px) {
+     .navimg {
+        width: 102.5px;
+        height: 71px;
+        margin-top: -55% !important;
+        margin-left: 0;
+    }
+    #precios {
+        margin-top: 250px;
+    }
+    input.form-control {
+        padding-right: 4% !important;
+    }
+    input.form-control.mr-sm-2 {
+      padding: 0 -30px 0 5px !important;
+    }
+     .form-inline {
+        margin-top: -5%;
+         margin-left: 35%;
+    }
+    .openbtn {
+         margin-top: -15% !important;
+        margin-left: 20% !important;
+    }
+    .card-img-top {
+        width: 152.66px;
+        height: 204.62px;
+    }
+    #nav {
+        height: 70px;
+    }
+    .cerrar {
+        margin-left: 10%;
+    }
+    input[type=number] {
+    display: block;
+    margin-left: -12%;
+     }
+     form#btns {
+        display: block;
+        margin-right: 5%;
+        margin-top: -13%;
+    }
+
+}
+@supports (-ms-ime-align: auto) {
+  
+    .form-inline {
+        margin-left: 34%;
+    }
+}

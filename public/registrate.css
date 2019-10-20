@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700');
+
+body {
+	height: 100%;
+	width: 100%;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #44bd32;
+}
+a.navbar-brand {
+    font-size: 3rem;
+}
+.navbar-l .navbar-nav .nav-link {
+    font-size: 1.8rem;
+	text-decoration: none;
+      text-rendering: geometricPrecision;
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: 30px;
+      color: black;
+      margin-top: 7px;
+      font-weight: 500;
+      font-family: "Heebo";
+      transition: transform .2s cubic-bezier(0.55, 0, 0.55, 0.2) , color .2s cubic-bezier(0.55, 0, 0.55, 0.2);
+      transform-origin: 50% 75%;
+}
+a.navbar-brand:hover, a.navbar-brand, a.nav-link, a.nav-link:hover {
+	color: rgba(0,0,0,1);
+}
+li.nav-item {
+    padding-right: 45px;
+}
+
+a.navbar-brand {
+    padding-left: 13px;
+	color: #1526D5 !important;
+	font-weight: 700;
+}
+ a.nav-link {
+         text-align: center;
+
+}
+.form-inline {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 5px;
+}
+a.nav-link:hover {
+    color: #dcdde1 !important;
+    font-weight: 700;
+    transform: scale(1.2);
+}
+
+/*SIGN IN*/
+
+.form-group {
+    margin: 0 auto;
+    width: 300px;
+	font-family: "Heebo", sans-serif;
+}
+form img {
+    display: block;
+	margin: 1% auto;
+    margin-bottom: 4%;
+}
+.form2 {
+	border: 2px solid #313331;
+	border-radius: 3%;
+	width: 350px;
+	margin: 0 auto;
+	padding-bottom: 3%;
+}
+.submit {
+	margin-left: 50% !important;
+    transform: translateX(-50%);
+	display: block;
+}
+.form2 {
+	padding-top: 3%;
+}
+small {
+    font-family: "Heebo", sans-serif;
+}
+#emailHelp {
+	color: black !important;
+	font-weight: 400;
+}
+.notice {
+    margin-left: 6%;
+    display: block;
+    font-family: "Heebo", sans-serif;
+    font-weight: 700;
+}
+.correo {
+    margin-top: 4%;
+}
+#login {
+	background-color: #44bd32;
+	padding: 4% 2%;
+}
+p#warning {
+    margin-right: 5px;
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+div.notice {
+   border: 2px solid #313331;
+   border-radius: 10px;
+   width: 70%;
+    display: block;
+    margin-left: 9%;
+    margin-top: 8%;
+}
+div.notice h3{
+    padding: 6%;
+    text-align: center;
+    color: #2f3640;
+    font-family: "Heebo";
+}
+/*FOOTER*/
+#footer {
+	padding: 2%;
+	text-align: center;
+}
+#footer i {
+	padding: 1%;
+}
+@media only screen and (max-width: 550px) {
+    li.nav-item {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        margin-top: 6%;
+    }
+    .form2 {
+        margin-bottom: 6%;
+    }
+} 
+@supports (-ms-ime-align: auto) {
+    @media only screen and (max-width: 550px) {
+    li.nav-item {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        margin-top: 6%;
+    }
+    .form2 {
+        margin-bottom: 5%;
+    }
+       
+} 
+}

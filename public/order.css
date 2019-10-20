@@ -1,0 +1,667 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,500,700');
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Heebo', sans-serif;
+}
+
+/**NAVBAR**/
+.navbar {
+    width: 100%;
+    z-index: 1;
+    background-color: #20BA08;
+    position: fixed !important;
+}
+.form-inline {
+     margin-left: 37% !important;
+     padding-top: 5px;
+     padding-bottom: 5px;
+}
+input.form-control.mr-sm-2 {
+    padding: 0 60px 0 5px;
+}
+
+.fa-shopping-cart:hover {
+    color: white;
+    transition: 1s;
+    cursor: pointer;
+}
+/**NAV**/
+.navbar {
+    background-color: #20BA08;
+    position: fixed !important;
+    width: 100%;
+    z-index: 1;
+}
+.form-inline {
+     margin-left: 65% !important;
+     padding-top: 10px;
+     padding-bottom: 10px;
+    -ms-margin-left: 34%;
+}
+input.form-control.mr-sm-2 {
+    padding: 0 60px 0 5px;
+}
+button.regre {
+    position: absolute;
+    margin-left: 26%;
+    margin-top: -1.6%;
+    z-index: 3;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+/**NAV**/
+#nav {
+    z-index: 2;
+    background-color: #20BA08;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    position: fixed;
+}
+.navimg {
+    position: fixed;
+    left: 2%;
+    top: 4%;
+}
+.nav {
+    margin-top: 5%;
+    transform: translateY(43%);
+    text-align: center;
+    background-color: #20BA08;
+}
+.nav-item {
+    padding: 10% 0;
+}
+a.nav-link {
+    text-decoration: none;
+      text-rendering: geometricPrecision;
+      position: relative;
+      display: block;
+      color: black;
+      font-weight: 500;
+      font-family: "Heebo";
+      transition: transform .6s cubic-bezier(0.55, 0, 0.55, 0.2) , color .6s cubic-bezier(0.55, 0, 0.55, 0.2);
+      transform-origin: 50% 75%;
+}
+
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color:  #79E712; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.7s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #1526D5;
+   font-weight: 700;
+    transform: scale(1.2);
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  cursor: pointer;
+  background-color: #0C6FAB;
+  color: white;
+  border: none;
+  margin-top: 175%;
+  margin-left: 3%;
+  font-family: Heebo !important;
+  border-radius: 10px;
+  vertical-align: middle;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 3% 4% 0 4%;
+    transition: 0.5s;
+}
+.openbtn i {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+.openbtn:hover {
+  background-color: #1526D5;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+.order  {
+    margin-left: 50%;
+}
+h3.line {
+    margin-left: 30%;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+.fadeIn {
+  opacity: 1;
+  transition: all 1.5s;
+  -webkit-transition: all 1.5s;
+  -moz-transition: all 1.5s;
+  -ms-transition: all 1.5s;
+  -o-transition: all 1.5s;
+}
+#btns button {
+    display: block;
+    margin-top: 5%;
+     margin-left: auto;
+    margin-right:  auto;
+}
+button.btn-info {
+    margin-top: 5% !important;
+}
+button.btn-warning {
+    margin-top: 5% !important;
+    margin-bottom: 7% !important;
+}
+
+#order {
+    background-color:  #313331;
+    padding-top: 10%;
+    padding-bottom: 15%;
+}
+.c {
+    display: inline;
+}
+.item {
+    margin-top: -1%;
+    border: 2px solid white;
+    border-radius: 6px;
+    width: 35%;
+    margin-left: 40%;
+    padding: 2%;
+    margin-bottom: -3%;
+}
+h3.line {
+    font-family: "Heebo";
+    color: white;
+    margin-left: 15%;
+    padding-top: 4%;
+}
+h4.total {
+    color: white;
+    margin-top: 10%;
+    margin-left: 15%;
+}
+h4.noticia {
+    margin-left: 40.5%;
+    width: 35%;
+    text-align: center;
+    margin-top: 6%;
+    color: yellow;
+    font-family: "Heebo";
+    margin-bottom: -4%;
+}
+h3.number {
+    font-family: "Heebo";
+    color: white;
+    text-align: center;
+    padding-top: 2%;
+}
+
+input[type=checkbox] {
+   margin-left: 1%;
+    margin-top: 1.8%;
+    position: absolute;
+}
+button.ordenar {
+    display: block;
+    margin-left: 39%;
+}
+#footer {
+    padding: 3%;
+    margin-left: 15%;
+    text-align: center;
+}
+.fo {
+    padding: .5%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .navbar {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200px;
+        z-index: 1;
+    }
+    .form-inline {
+        margin-left: 23%;
+        position: absolute;
+        display: inline !important;
+    }
+    input.form-control {
+        margin-top: -15%;
+    }
+    button.btn-outline-dark {
+        margin-top: -15% !important;
+    }
+    #nav {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;  
+        height: 80px;
+        z-index: 1;
+        margin-top: 200px;
+    }
+    .nav {
+        margin: 2% 0;
+        transform: translateY(0);
+    }
+    .navimg {
+        margin-top: -17% !important;
+        z-index: 1;
+        position: absolute;
+    }
+    .nav-item {
+        padding: 5% 0;
+    }
+    .regre {
+        margin-top: -4% !important;
+    }
+.closebtn {
+    visibility: visible;
+}
+.openbtn {
+    visibility: visible;
+}
+.sidebar {
+  margin-top: 0;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color:  #44bd32; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.7s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2f3640;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #dcdde1;
+   font-weight: 700;
+    transform: scale(1.2);
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  visibility: visible;
+  cursor: pointer;
+  background-color: #0C6FAB;
+  color: white;
+  border: none;
+  margin-top: -8%;
+  margin-left: 37% !important;
+  font-family: Heebo !important;
+  border-radius: 10px;
+  vertical-align: middle;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding: 2% 4% 2% 4%;
+    transition: 1s;
+}
+.openbtn i {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+.openbtn:hover {
+  background-color: #1526D5;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left 1s; /* If you want a transition effect */
+  padding: 20px;
+}
+    .or {
+        margin-top: 20%;
+        margin-left: -8% !important;
+    }
+  
+
+    #footer {
+    padding: 7%;
+    margin-left: 0%;
+    text-align: center;
+}
+}
+@media only screen and (max-width: 780px) {
+     #nav {
+        height: 80px;
+    }
+    .navimg {
+        margin-top: -23% !important;
+        margin-left: 5%;
+    }
+     .regre {
+        margin-top: -5% !important;
+    }
+    .form-inline {
+         margin-left: 51% !important;
+        margin-top: -1s%;
+    }
+    .openbtn {
+        margin-top: -9% !important;
+        margin-left: 37% !important;
+    }
+    .item {
+    margin-top: 17%;
+    border: 2px solid white;
+    border-radius: 6px;
+    width: 50%;
+    margin-left: 33%;
+    padding: 3%;
+    margin-bottom: -3%;
+}
+h3.line {
+    font-family: "Heebo";
+    color: white;
+    margin-left: 15%;
+    padding-top: 2%;
+}
+
+button.ordenar {
+    display: block;
+    margin-left: 35%;
+}
+     #footer {
+    padding: 8%;
+    margin-left: 0%;
+    text-align: center;
+}
+}
+
+@media only screen and (max-width: 690px) {
+ .navimg {
+        margin-top: -27% !important;
+        margin-left: 5%;
+    }
+    .form-inline {
+         margin-left: 45%;
+        margin-top: -7%;
+    }
+    .cart {
+        margin-left: -17%;
+        margin-top: 34%;
+        margin-right: 10%;
+    }
+     div.col-md-4 {
+        padding: 15px;
+        margin: 0;
+    }
+     #precios {
+        margin-top: 200px;
+        margin-left: 0%;
+    }
+     input[type=number] {
+        display: block !important;
+        margin-left: 10%;
+     }
+    .openbtn {
+        margin-top: -3% !important;
+        margin-left: 33% !important;
+    }
+      .desc {
+        display: block;
+        margin-right: 5%;
+        margin-left: 5%;
+        text-align: center !important;
+        margin-top: 0;
+    }
+    div.precios2 {
+         margin-top: -13px;
+         padding: -10%  !important;
+    }
+}
+@media only screen and (max-width: 580px) {
+    .navimg {
+        margin-top: -40% !important;
+        margin-left: 5%;
+    }
+    .form-inline {
+         margin-left: 40%;
+        margin-top: -5%;
+    }
+     button.btn-outline-dark {
+        margin-top: 2% !important;
+    }
+    .openbtn {
+        margin-top: -7% !important;
+        margin-left: 33% !important;
+    }
+    input[type=number] {
+        display: block !important;
+        margin-left: 4%;
+     }
+    #nav {
+        height: 90px;
+    }
+     #precios {
+        margin-top: 50px;
+        margin-left: 0%;
+    }
+      form#btns {
+        display: block;
+        margin-right: 5%;
+        margin-top: -6%;
+    }
+    .precios {
+        margin-top: -2% !important;
+        margin-left: auto !important;
+    }
+}
+@media only screen and (max-width: 425px) {
+    
+    .navimg {
+        width: 102.5px;
+        height: 81px;
+        margin-top: -43% !important;
+        margin-left: 5%;
+    }
+     #nav {
+        height: 97px;
+    }
+    .form-inline {
+        margin-top: -3%;
+        margin-left: 32% !important;
+    }
+    button.btn-outline-dark {
+        margin-top: 5% !important;
+    }
+    .regre {
+       margin-top: 6% !important;
+        margin-left: 30% !important;
+    }
+     
+    .openbtn {
+        margin-top: -7% !important;
+        margin-left: 28% !important;
+    }
+      .item {
+    margin-top: 55%;
+    border: 2px solid white;
+    border-radius: 6px;
+    width: 80%;
+    margin-left: 20%;
+    padding: 3%;
+    margin-bottom: -3%;
+}
+h3.line {
+    font-family: "Heebo";
+    color: white;
+    margin-left: 15%;
+    padding-top: 2%;
+}
+h4.noticia {
+    margin-left: 31%;
+    width: 60%;
+    text-align: center;
+    margin-top: 6%;
+    color: yellow;
+    font-family: "Heebo";
+    margin-bottom: -4%;
+}
+button.ordenar {
+    display: block;
+    margin-left: 32%;
+}
+}
+@media only screen and (max-width: 375px) {
+  .navimg {
+        width: 102.5px;
+        height: 81px;
+        margin-top: -48% !important;
+        margin-left: 3%;
+    }
+    .form-inline {
+        margin-top: -3%;
+        margin-left: 30%;
+    }
+    #precios {
+        margin-top: 260px;
+    }
+    .openbtn {
+        margin-top: -10% !important;
+        margin-left: 27% !important;
+    }
+    #nav {
+        height: 80px;
+    }
+input[type=number] {
+    display: block;
+    margin-left: -5%;
+     }
+    .card {
+        width: 70%;
+        display: block;
+        margin: 3% auto;
+    }
+    #footer {
+    padding: 7%;
+    margin-left: 0%;
+    text-align: center;
+}
+}
+@media only screen and (max-width: 330px) {
+     .navimg {
+        width: 102.5px;
+        height: 71px;
+        margin-top: -55% !important;
+        margin-left: 0;
+    }
+    #precios {
+        margin-top: 250px;
+    }
+     input.form-control {
+        padding-right: 4% !important;
+    }
+     .form-inline {
+        margin-top: -5%;
+         margin-left: 35%;
+    }
+     .regre {
+       margin-top: 6% !important;
+        margin-left: 25% !important;
+    }
+    .openbtn {
+        margin-top: -10% !important;
+        margin-left: 22% !important;
+    }
+      .item {
+    margin-top: 75%;
+    border: 2px solid white;
+    border-radius: 6px;
+    width: 80%;
+    margin-left: 20%;
+    padding: 3%;
+    margin-bottom: -3%;
+}
+    h4.noticia {
+    margin-left: 21%;
+    width: 80%;
+    text-align: center;
+    margin-top: 6%;
+    color: yellow;
+    font-family: "Heebo";
+    margin-bottom: -4%;
+}
+    h3.line {
+    font-family: "Heebo";
+    color: white;
+    margin-left: 15%;
+    padding-top: 1%;
+}
+    h4.total {
+    color: white;
+   text-align: center;
+    margin-left: 5%;
+}
+    button.ordenar {
+    display: block;
+    margin-left: 26%;
+}
+}
+@supports (-ms-ime-align: auto) {
+  
+    .form-inline {
+        margin-left: 34%;
+    }
+}
