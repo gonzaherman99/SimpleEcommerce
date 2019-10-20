@@ -43,18 +43,16 @@ app.use(session({
 app.use(flash());
 var session1;
 
+//THE CODE BELOW IS TO NOTIFIE WHEN THE SESSION EXPIRES AND THE IS RESETED
 
 app.use(function(req, res, next) {
     //Checking previously set cookie (if there is one) 
     var session = req.session.cookie || '';
-    
-    
-    
-    if (new Date(session._expires) < new Date()) {
+    if (new Date(session._expires) < new Date()) {  //CHEKING THE COOKIE AGAINST THE DATE FOR EXPIRRATION
         console.log('User session has expired.');
         Order.deleteMany({session:  session1}, function(err, c) {
       });
-       req.session.cookie.expires = new Date(Date.now() + 360000)
+       req.session.cookie.expires = new Date(Date.now() + 360000)  //COOKIE RESET
     } else {
         console.log("Not");
     }
@@ -66,33 +64,31 @@ app.use(passport.initialize());
 app.use(passport.session());
 
                          
-// mongoose
+// CONNECTION TO THE DATABASE
 mongoose.connect("mongodb+srv://++++++++++@cluster0-okw4h.mongodb.net/productosDB",
    {useNewUrlParser: true});
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true); 
 
-const usersSchema = {
-    user: String,
-    registerToken: String,
-    registerExpires: Date
-};
 
+//THE PASSWORD AND EMAIL OF THE USERS WHIT resetPasswordToken 
 const credentialsSchema = new mongoose.Schema ({
     username: String,
     password: String,
     phone: Number,
-    resetPasswordToken: String,
-    resetPasswordExpires: Date
+    resetPasswordToken: String,  //TOKEN USEFUL WHEN THE USER INITIATES THE PASSWORD RESET
+     resetPasswordExpires: Date   // EXPIRATION OF THE TOKEN SO THE CUSTOMER CAN ACCESS THE RESET PAGE
 });
 
+//HOW EACH PRRODUCT SCHEMA IS SETUP
 const productsSchema = {
     id: Number,
     name: String,
     price: Number
 };
 
+//ORDER WHIT THE SESSION THAT THE ORDER CAME FROM
 const orderSchema = {
     session: String,
     amount: Number,
@@ -115,7 +111,6 @@ const User = mongoose.model("User", usersSchema);
 
 passport.use(Credential.createStrategy());
 
-
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -124,13 +119,6 @@ passport.deserializeUser(function(id, done) {
   Credential.findById(id, function(err, user) {
     done(err, user);
   });
-});
-
-
-
-app.get("/flash", function(req, res){
-  req.flash("info", "Flash is back!");
-  res.redirect('/login');
 });
 
 var username1;
@@ -145,29 +133,15 @@ app.get("/login", function( req, res) {
     }
 });
 
-app.get("/registrate/:token", function(req, res) {
-   User.findOne({ registerToken: req.params.token, registerExpires: { $gt: Date.now() } }, function(err, user) {
-    if (!user) {
-      req.flash("error", "Password reset token is invalid or has expired.");
-      return res.redirect("/registrate1");
-    }
+
+app.get("/registrate", function(req, res) {
     res.render("registrate");
-  });
 });
 
-
-app.post("/registrate/:token", function(req, res, next) {
-    
-    async.waterfall([
-    function(done) {
-      User.findOne({ registerToken: req.params.token, registerExpires: { $gt: Date.now() } }, function(err, user) {
-        if (!user) {
-          req.flash("error", "Password reset token is invalid or has expired.");
-          return res.redirect("back");
-        } 
-          
-           let username = req.body.username; 
-           let password = req.body.password;
+//POST ROUTE AFTER THE USER REGISTERS WILL SEND AN EMAIL NOTIFING THE USER
+app.post("/registrate", function(req, res, next) {
+        let username = req.body.username; 
+        let password = req.body.password;
           
         Credential.register({username: username}, password, function(err, user){
         if(err) {
@@ -178,11 +152,7 @@ app.post("/registrate/:token", function(req, res, next) {
                 
                 res.redirect("/productos2");
             });
-        }
-     });
-          
-      });
-    },
+        },
    async function(token, user, done) {
       var transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -193,7 +163,6 @@ app.post("/registrate/:token", function(req, res, next) {
       pass: process.env.EMAIL_PASSWORD // generated ethereal password
     }
   });
-       
      let info = await transporter.sendMail({
     from: "<+++++++@gmail.com>", // sender address
     to: '"' + user1.username + '"', // list of receivers
@@ -207,7 +176,7 @@ app.post("/registrate/:token", function(req, res, next) {
    });
    
     
-    app.post("/login", function(req, res) {
+ app.post("/login", function(req, res) {
         
      username1 = req.body.username;
         
@@ -246,6 +215,7 @@ app.get("/logout", function(req, res){
       });
 });
 
+//FUNCTION USED IN THE POST ROUTES OF EACH PRODUCT TO CHECK IF A QUANTITY WAS ENTER
 function checkO(para) {
         if (para === "") {
             console.log("Missing number");
@@ -253,12 +223,9 @@ function checkO(para) {
 }
 
 var productName;
-
-var ordersArray = [];
-
+ 
+//THIS VARIABLE IS USED IF THE PRODUCTS PRICING IS BASED ON LARGE QUANTITES(100, 50, 60), TO GET THE PRICING FOR UNIT
 var totalPrice; 
-
-
 
 app.get("/", function(req, res) {
     res.render("fullstack");
@@ -266,10 +233,14 @@ app.get("/", function(req, res) {
 
 app.get("/productos2", function (req, res){
     if(req.isAuthenticated()) {
+     
+     //GET THE USER SESSION TO ADD TO THE ORDERS SCHEMA AS AN "ID"
     var str = req.session.passport;
     var str1 = JSON.stringify(str.user);
     str1.replace(/['"]+/g, '');
     session1 = str1;
+     
+    //COUNT THE AMOUNT OF PRODUCTS ADDED TO THE CART BY USER SESSION
    Order.countDocuments({session:  session1}, function(err, c) {
          res.render("productos2",{cart: c});
       });
@@ -377,119 +348,6 @@ app.get("/pichachas2", function(req, res) {
     }
 });
 
-
-app.get("/camisas2", function(req, res) {
-    if(req.isAuthenticated()) {  
-          req.flash("none", "");
-        if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-      Order.countDocuments({session: session1}, function(err, c) {
-         res.render("camisas2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
-app.get("/hule-redondo2", function(req, res) {
-     if(req.isAuthenticated()) {
-          req.flash("none", "");
-         if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-      Order.countDocuments({session: session1}, function(err, c) {
-         res.render("hule-redondo2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
-app.get("/hule-cuadrado2", function(req, res) {
-    if(req.isAuthenticated()) {  
-         req.flash("none", "");
-        if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-    Order.countDocuments({session: session1}, function(err, c) {
-         res.render("hule-cuadrado2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
-app.get("/hule-rectangular2", function(req, res) {
-    if (req.isAuthenticated()) {  
-         req.flash("none", "");
-        if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-    Order.countDocuments({session: session1}, function(err, c) {
-         res.render("hule-rectangular2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
-app.get("/destapador2", function(req, res) {
-    if(req.isAuthenticated()) { 
-         req.flash("none", "");
-        if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-    Order.countDocuments({session: session1}, function(err, c) {
-         res.render("destapador2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
-app.get("/masillador2", function(req, res) {
-     if(req.isAuthenticated()) {
-          req.flash("none", "");
-         if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-    Order.countDocuments({session: session1}, function(err, c) {
-         res.render("masillador2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
-app.get("/lijador2", function(req, res) {
-    if(req.isAuthenticated()) {
-         req.flash("none", "");
-        if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-    Order.countDocuments({session: session1}, function(err, c) {
-         res.render("lijador2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
-app.get("/sapos2", function(req, res) {
-    if(req.isAuthenticated()) { 
-        req.flash("none", "");
-        if(req.session.passport === undefined) {
-            res.redirect("/login");
-        }
-    Order.countDocuments({session: session1}, function(err, c) {
-         res.render("sapos2",{cart: c, message: req.flash("none")});
-      });
-    } else {
-       res.redirect("/login");
-    }
-});
-
 app.get("/seccion-bisagras2", function(req, res) {
     if(req.isAuthenticated()) {
         req.flash("none", "");
@@ -532,6 +390,7 @@ app.get("/seccion-hule2", function(req, res) {
     }
 });
 
+//FORGOT PASSWORD PAGE
 app.get("/forgot", function(req, res) {
     res.render("forgot"); 
 });
@@ -543,9 +402,9 @@ app.get("/order", function(req, res) {
     if (req.session.passport === undefined) {
         res.redirect("/login");
     } 
-       
+      
+ //THE FOLLOWING IS TO GET THE TOTAL FROM ALL THE PRODUCTS AND A TOTAL ORDER AMOUNT (MONEY)
  Order.aggregate([
-     
      { $match: { session: session1 } },
     { $group: {
         _id: null,
@@ -571,11 +430,8 @@ app.get("/order", function(req, res) {
     }
 });
 
-
+//WHEN THE USER CLICK ON SEND ORDER THE PROCESS TO SEND THE EMAIL TO THE USER
 app.post("/order", function(req, res) {
-    
-
-    
      Order.aggregate([
      
      { $match: { session: session1 } },
@@ -615,38 +471,14 @@ app.post("/order", function(req, res) {
                  //send mail with defined transport object
                  let info = await transporter.sendMail({
                   from: '<+++++++@gmail.com>', // sender address
-                  to: "+++++++@hotmail.com", // list of receivers
-                  subject: "Orden PAPA!", // Subject line
+                  to: username1, // list of receivers
+                  subject: "Order!", // Subject line
                   html: "<h3>" + amount + "</h3>" +
                      "<h3>" + username1 + "</h3>"
                  // plain text body // html body
               });
             }
-            main().catch(console.error); 
-            async function main(){
-
-                // create reusable transporter object using the default SMTP transport
-                let transporter = nodemailer.createTransport({
-                host: "smtp.gmail.com",
-                 port: 465, //465
-                secure: true, // true for 465, false for other ports
-                auth: {
-                 user: "+++++++@gmail.com", 
-                 pass: process.env.EMAIL_PASSWORD // generated ethereal password
-              }
-            });
-                 //send mail with defined transport object
-                 let info = await transporter.sendMail({
-                  from: '<+++++++@gmail.com>', // sender address
-                  to: '"' + username1 + '"', // list of receivers
-                  subject: "Confirmacion de orden", // Subject line
-                  text: "Gracias por tu orden, estaremos en contacto, en la siguiente hora"
-                 // plain text body // html body
-              });
-            }
-             main().catch(console.error);        
-         }); 
-        }
+            main().catch(console.error);     
         });
 
   res.redirect("/logout");
@@ -655,14 +487,16 @@ app.post("/order", function(req, res) {
 
 
 app.post("/cambio", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-    if (req.body.option === "" || productName === undefined ) {
+    var inputValue = req.body.vote; 
+    if (inputValue == "add") {  //CHEK IF THE USER CLICKED ADD 
+    if (req.body.option === "" || productName === undefined ) { //IF THE USER DIDN´T CHOOSE A PRODUCT OR QUANTITY REETRIVE ERROR
         req.flash("number", "No elegiste tu producto o una cantidad");
          Order.countDocuments({session:  session1}, function(err, c) {
         res.render("cambio", {cart: c, message: req.flash("number") });
          }); 
         } else {
+         
+    // LIKE I STATED AT THE BEGGINING WILL GET THE PRICE FOR UNIT  IN THE LINE 503
     var cantidad = req.body.option;
     var name = productName.name;
     var price = productName.price;
@@ -715,9 +549,6 @@ app.post("/rodos2",  function(req, res) {
     var inputValue = req.body.vote;
     if (inputValue == "add") { 
     if (req.body.option === "" || productName === undefined ) {
-         var str = req.session.passport;
-         var str1 = JSON.stringify(str.user);
-          str1.replace(/['"]+/g, '');
         req.flash("number", "No elegiste tu producto o una cantidad");
          Order.countDocuments({session: session1}, function(err, c) {
         res.render("rodos2", {cart: c, message: req.flash("number") });
@@ -849,201 +680,6 @@ app.post("/pichachas2", function(req, res) {
     }
 });
 
-app.post("/camisas2", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-        if (req.body.option === "" || productName === undefined ) {
-        req.flash("number", "No elegiste tu producto o una cantidad");
-         Order.countDocuments({session: session1}, function(err, c) {
-        res.render("camisas2", {cart: c, message: req.flash("number") });
-         }); 
-        } else {
-    var cantidad = req.body.option;
-    var name = productName.name;
-    var price = productName.price;
-    totalPrice = cantidad * price;
-     const order = new Order ({
-         session: str1,
-        amount: cantidad,
-         name: name,
-        price: price,
-         total: totalPrice
-    });
-     order.save();    
-    console.log(order);
-    res.redirect("/camisas2");
-        }
-    }
-});
-
-app.post("/hule-cuadrado2", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-        if (req.body.option === "" || productName === undefined ) {
-        req.flash("number", "No elegiste tu producto o una cantidad");
-         Order.countDocuments({session: session1}, function(err, c) {
-        res.render("hule-cuadrado2", {cart: c, message: req.flash("number") });
-         }); 
-        } else {
-    var cantidad = req.body.option;
-    var name = productName.name;
-    var price = productName.price;
-    var cantidadA = cantidad;    
-    totalPrice = (cantidadA / 100) * price;
-     const order = new Order ({
-         session: session1,
-        amount: cantidad,
-         name: name,
-        price: price,
-         total: totalPrice
-    });
-     order.save();    
-    console.log(order);
-    res.redirect("/hule-cuadrado2");
-        }
-    }
-});
-
-app.post("/hule-redondo2", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-        if (req.body.option === "" || productName === undefined ) {
-        req.flash("number", "No elegiste tu producto o una cantidad");
-         Order.countDocuments({session: session1}, function(err, c) {
-        res.render("hule-redondo2", {cart: c, message: req.flash("number") });
-         }); 
-        } else {
-    var cantidad = req.body.option;
-    var name = productName.name;
-    var price = productName.price;
-    var cantidadA = cantidad;    
-    totalPrice = (cantidadA / 100) * price;
-     const order = new Order ({
-         session: session1,
-        amount: cantidad,
-         name: name,
-        price: price,
-         total: totalPrice
-    });
-     order.save();    
-    console.log(order);
-    res.redirect("/hule-redondo2");
-        }
-    }
-});
-
-app.post("/hule-rectangular2", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-        if (req.body.option === "" || productName === undefined ) {
-        req.flash("number", "No elegiste tu producto o una cantidad");
-         Order.countDocuments({session: session1}, function(err, c) {
-        res.render("hule-rectangular2", {cart: c, message: req.flash("number") });
-         }); 
-        } else {
-    var cantidad = req.body.option;
-    var name = productName.name;
-    var price = productName.price;
-    var cantidadA = cantidad;    
-    totalPrice = (cantidadA / 100) * price;
-     const order = new Order ({
-         session: session1,
-        amount: cantidad,
-         name: name,
-        price: price,
-         total: totalPrice
-    });
-     order.save();    
-    console.log(order);
-    res.redirect("/hule-rectangular2");
-        }
-    }
-});
-
-app.post("/destapador2", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-        if (req.body.option === "" || productName === undefined ) {
-        req.flash("number", "No elegiste tu producto o una cantidad");
-         Order.countDocuments({session: session1}, function(err, c) {
-        res.render("destapador2", {cart: c, message: req.flash("number") });
-         }); 
-        } else {
-    var cantidad = req.body.option;
-    var name = productName.name;
-    var price = productName.price;
-     var cantidadA = cantidad;    
-    totalPrice = (cantidadA / 12) * price;
-     const order = new Order ({
-         session: session1,
-        amount: cantidad,
-         name: name,
-        price: price,
-         total: totalPrice
-    });
-     order.save();    
-    console.log(order);
-    res.redirect("/destapador2");
-        }
-    }
-});
-
-app.post("/masillador2", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-        if (req.body.option === "" || productName === undefined ) {
-        req.flash("number", "No elegiste tu producto o una cantidad");
-         Order.countDocuments({session: session1}, function(err, c) {
-        res.render("masillador2", {cart: c, message: req.flash("number") });
-         }); 
-        } else {
-    var cantidad = req.body.option;
-    var name = productName.name;
-    var price = productName.price;
-    var cantidadA = cantidad;    
-    totalPrice = (cantidadA / 100) * price;
-     const order = new Order ({
-         session: session1,
-        amount: cantidad,
-         name: name,
-        price: price,
-         total: totalPrice
-    });
-     order.save();    
-    console.log(order);
-    res.redirect("/masillador2");
-        }
-    }
-});
-
-app.post("/sapos2", function(req, res) {
-    var inputValue = req.body.vote;
-    if (inputValue == "add") {
-        if (req.body.option === "" || productName === undefined ) {
-        req.flash("number", "No elegiste tu producto o una cantidad");
-         Order.countDocuments({session: session1}, function(err, c) {
-        res.render("sapos2", {cart: c, message: req.flash("number") });
-         }); 
-        } else {
-    var cantidad = req.body.option;
-    var name = productName.name;
-    var price = productName.price;
-    var cantidadA = cantidad;   
-    totalPrice = (cantidadA / 100) * price;
-     const order = new Order ({
-         session: session1,
-        amount: cantidad,
-         name: name,
-        price: price,
-         total: totalPrice
-    });
-    order.save();    
-    console.log(order);
-    res.redirect("/sapos2");
-        }
-    }
-});
-
 
 app.post("/delete", function(req, res) {
     const check = req.body.checkbox;
@@ -1056,7 +692,9 @@ app.post("/delete", function(req, res) {
     });
 });
 
-
+/*THE CONNECTION TO BETWEEN THE JS FILES AND THE SERVERS IS TO
+  GET THE ID OF THE BUTTOMS AND BY THAT ID FIND THE PRODUCT IN THE DATABASE 
+ */
 app.post("/clicked", (req, res) => {
     var pro = (req.body.name);
     Number(pro);
@@ -1077,7 +715,7 @@ app.post("/clicked", (req, res) => {
     }); 
 });
 
-
+//ROUTE WHEN THE PASSWORD ID FORGOTTEN
 app.post("/forgot", function(req, res, next) {
   async.waterfall([
     function(done) {
@@ -1129,7 +767,7 @@ app.post("/forgot", function(req, res, next) {
   });
 });
 
-
+//THIS PAGE WILL ONLY BE ACCESIBLE IF THE USER REQUESTED TO CHANGE THE PASSWORD SEE :token
 app.get("/reset/:token", function(req, res) {
   Credential.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
     if (!user) {
