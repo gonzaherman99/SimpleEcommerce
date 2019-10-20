@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Productos TECAF</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--CSS Link-->
+    
+    <link href="/productos2.css" rel="stylesheet">
+    
+    <!--Boostrap CSS Link-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <!--Boostrap JS Link-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    
+</head>
+<body>
+    
+    
+    <div class="navbar navbar-expand-lg navbar-dark">
+        
+         <form class="form-inline  my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+         </form>
+        
+       <a href="/order" class="orden"><i class="fas fa-shopping-cart fa-2x"></i><span class="number"><%= cart %></span></a>
+        
+        <a class="btn btn-dark cerrar" type="singin" href="/logout">Cerrar Sesion</a>
+        
+    </div>
+    
+
+    
+    <section id="nav">
+    
+    <a href="/"><img src="images/tecaf.jpg" class="navimg" width="145.2" height="102.8"></a>
+
+  <div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="nav-link" href="#">INICIO</a>
+  <a class="nav-link" href="/seccion-bisagras2">BISAGRAS</a>
+  <a  class="nav-link" href="/seccion-hule2">ACCESORIOS DE HULE</a>
+  <a class="nav-link" href="/seccion-cafe2">INDUSTRIA DEL CAFE</a>
+</div>
+
+<div id="main">
+    <button class="openbtn" onclick="openNav()" onclick="dissa();"><i class="fas fa-arrow-right fa-2x"></i>MENU PRINCIPAL</button> 
+</div>
+    </section>
+    
+<section id="precios">
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/bisagras.jpg" class="card-img-top" alt="#">
+                    <div class="card-body">
+                        <h5 class="card-title">Bisagras de Cartucho</h5>
+                        <p class="card-text">Bisagras de Bandera para pertas de uso indutrial</p>
+                        <a href="/cambio" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/bisagras2.jpg" class="card-img-top bisagras2" alt="#">
+                    <div class="card-body">
+                        <h5 class="card-title">Bisagras de Bandera</h5>
+                        <p class="card-text">Bisagras de Cartucho para pertas de uso indutrial</p>
+                        <a href="/bisbandera2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/IMG-20190520-WA0015.jpg" class="card-img-top" alt="#" width="229" height="306.93">
+                    <div class="card-body">
+                        <h5 class="card-title">Rodo Sin Base</h5>
+                        <p class="card-text">Rodo sin base en V y U de toda medida</p>
+                        <a href="/rodos3" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/rodo.jpg" class="card-img-top" alt="#" width="229" height="306.93">
+                    <div class="card-body">
+                        <h5 class="card-title">Rodo Con Base</h5>
+                        <p class="card-text">Rodo con base en V y U de toda medida</p>
+                        <a href="/rodos2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+            </div>
+            
+             </div>
+            <div class="row">
+        
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/poleas.jpg" class="card-img-top" alt="#" width="229" height="306.93">
+                    <div class="card-body">
+                        <h5 class="card-title">Poleas</h5>
+                        <p class="card-text">Poleas  para usos diversos en U y A</p>
+                        <a href="/poleas2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+            </div>
+        
+            
+             <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/faja.jpg" class="card-img-top" alt="#" width="229" height="306.93">
+                    <div class="card-body">
+                        <h5 class="card-title">Faja Plana</h5>
+                        <p class="card-text">Faja plana de cualquier medida para molinos, tornos. etc.</p>
+                        <a href="/faja2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/IMG-20190513-WA0007.jpg" class="card-img-top" alt="#">
+                    <div class="card-body">
+                        <h5 class="card-title">Pichachas Para Patio de Cafe</h5>
+                        <p class="card-text">Pichachas de todas medidas, inoxidables y no-inoxidables</p>
+                        <a href="/pichachas2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/camisas.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Camisas para Despulpador de Cafe</h5>
+                        <p class="card-text">Camisas de diferente medidad para la industra del cafe</p>
+                        <a href="/camisas2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/tacos.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Tacos De Hule Redondos</h5>
+                        <p class="card-text">Tacos de Hule Redondo de la maejor calidad para la carpinteria</p>
+                        <a href="/hule-redondo2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/tacos2.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Tacos De Hule Cuadrado</h5>
+                        <p class="card-text">Tacos de Hule Cuadrado de la maejor calidad para la carpinteria</p>
+                        <a href="/hule-cuadrado2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/tacos3.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Tacos De Hule Rectangular</h5>
+                        <p class="card-text">Tacos de Hule Rectangular de la maejor calidad para la carpinteria</p>
+                        <a href="/hule-rectangular2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/destapador.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Destapadores De Hule</h5>
+                        <p class="card-text">Destapadores de Hule  de la maejor calidad convirtiendose en un articulo necesario en su negocio u hogar.</p>
+                        <a href="/destapador2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/masillador.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Masilladores De Hule</h5>
+                        <p class="card-text">Masilladores de Hule de la mejor resitencia con la dureza ideal para todos lo trabajos necesarios</p>
+                        <a href="/masillador2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/lijadores.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Lijadores De Hule </h5>
+                        <p class="card-text">Lijadores de gran calidad para trabajos en metal o madera.</p>
+                        <a href="/lijador2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="/images/sapos.jpg" class="card-img-top" alt="#" width="227" height="302.66">
+                    <div class="card-body">
+                        <h5 class="card-title">Sapos Para Entrada De Agua De Inodoro </h5>
+                        <p class="card-text">Los Sapos mas conocidos como Sapitos contienen los mejores componentes para que los inodoros no sufran ninguna fuja.</p>
+                        <a href="/sapos2" class="btn btn-primary">Ver Precios!</a>
+                    </div>
+                </div>
+                 </div>
+            
+            
+        </div>
+            
+        
+    </div>
+    
+    </section>
+    <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <i class="fas fa-envelope fo"></i>
+                        <i class="fab fa-instagram fo"></i>
+                        <i class="fab fa-facebook-square fo"></i>
+                        <i class="fab fa-twitter fo"></i>
+                        <p>Copyright &copy 2019 TECAF. All rights reserved</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+    
+    <script src="/productos.js"></script>
+</body>
+</html>

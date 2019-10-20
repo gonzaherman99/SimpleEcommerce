@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <title>Productos TECAF</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="/order.css" rel="stylesheet">
+        
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <!--Boostrap JS Link-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    
+    </head>
+<body>
+    
+    <div class="navbar navbar-expand-lg navbar-dark">
+        
+       <a href="/productos2"> <button type="button" class="btn btn-dark regre">
+           <i class="fas fa-arrow-left"></i>  REGRESAR </button></a>
+        
+    
+         <form class="form-inline  my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+         </form>
+        
+      
+    </div>
+    
+     <section id="nav">
+    
+    <a href="/"><img src="images/tecaf.jpg" class="navimg" width="145.2" height="102.8"></a>
+
+  <div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a class="nav-link" href="#">INICIO</a>
+  <a class="nav-link" href="/seccion-bisagras">BISAGRAS</a>
+  <a  class="nav-link" href="/seccion-hule">ACCESORIOS DE HULE</a>
+  <a class="nav-link" href="/seccion-cafe">INDUSTRIA DEL CAFE</a>
+</div>
+
+<div id="main">
+    <button class="openbtn" onclick="openNav()" onclick="dissa();"><i class="fas fa-arrow-right fa-2x"></i>MENU PRINCIPAL</button> 
+</div>
+    </section>
+    
+    <section id="order">
+        
+            
+    <div class="container-fluid or">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+        
+        <div class="item">
+    <form action="/delete"  method="post" id="order1">
+        <% ordenItem.forEach(function(item){ %>
+        
+        <div class="c">
+        <input id="checkbox"type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+            <h3 class="line"><span class="cantidad"><%=   item.amount  %></span>  <span class="name"><%= item.name %></span>  </h3>
+        </div>
+        <% }) %>
+        <h4 class="total">EL TOTAL DE TU ORDEN ES</h4>
+        <h3 class="number">Q<%= totalAmount.toFixed(2) %></h3>
+     </form>
+            <form action="/order" method="post">
+                 <button type="submit" class="btn btn-warning ordenar">ORDENAR</button>
+            </form>
+              
+            </div>
+                
+                <h4 class="noticia">CUANDO ORDENES TE REDIJIREMOS A LA PAGINA PRINCIPAL Y TE CONTACTAREMOS DE UNAS HORAS</h4>
+        
+            </div>
+         </div>
+    </div>
+        
+      
+      
+
+    
+
+         
+    
+    </section>
+    <%- include("partials/footer") %>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta name="language" content="Spanish">
+        <title>TECAF / Registrate</title>
+        
+        <link href="/registrate.css" rel="stylesheet">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!--Boostrap CSS Link-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+        
+        <!--Boostrap JS Link-->
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    </head>
+    <body>
+        
+                <nav class="navbar navbar-l navbar-expand-lg">
+            <a class="navbar-brand" href="#">TECAF</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navlist" aria-controls="navlist" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <form class="form-inline" id="form">
+                <input id="first" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            
+            <div class="collapse navbar-collapse" id="navlist">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id= "inicio" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/productos.html">Productos</a>
+                        <li class="nav-item">
+                        <a class="nav-link" href="/about.html">Acerca</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+		<section id="login">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
+                
+        <form class="form2" get="regis/registrate.html" method="post" onSubmit="check();">
+            
+            <img src="../images/tecaf.jpg" height="128.50" width="181.50">
+          <div class="form-group">
+            <label for="user">Usuario</label>
+              
+            <input type="user" class="form-control" id="user" placeholder="Usuario" name="username">
+          
+         </div>
+         <div class="form-group">
+           <label>Contraseña</label>
+             
+              
+             
+             <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password" onfocus="white();">
+             
+             <label class="correo">Confirma tu Contraseña</label>
+             
+             <input type="password" class="form-control" id="password2" placeholder="Confirma tu Contraseña" name="password2" onfocus="white();">
+            
+             
+         </div>
+         <div class="form-group form-check">
+             
+             <p class="warning" id="warning"></p>
+             
+           <input type="checkbox" class="form-check-input" id="exampleCheck1">
+             
+         <label class="form-check-label">Recibe Nuestras Promociones</label>
+        </div>
+        
+            <button type="submit"  class="btn btn-primary submit">Registrarse!</button>
+             
+             
+      </form>
+                
+            </div>
+          </div>
+        </div>
+		</section>
+		
+		<section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <i class="fas fa-envelope"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-twitter"></i>
+                        <p>Copyright &copy 2019 TECAF. All rights reserved</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+        <script src="/registrate.js"></script>
+    </body>
+</html>
